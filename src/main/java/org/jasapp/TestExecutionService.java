@@ -55,7 +55,7 @@ public synchronized boolean startExecution() {
     PrintStream oldOut = System.out;
     PrintStream oldErr = System.err;
     try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        PrintStream testOut = new PrintStream(baos, true, StandardCharsets.UTF_8)) {
+        PrintStream testOut = new PrintStream(baos, true, StandardCharsets.UTF_8.name())) {
       System.setOut(testOut);
       System.setErr(testOut);
       SummaryGeneratingListener listener = new SummaryGeneratingListener();
