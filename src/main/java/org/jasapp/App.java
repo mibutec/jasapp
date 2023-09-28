@@ -48,8 +48,13 @@ public class App {
   static Properties getProperties() {
 	  String propertiesClasspathName = System.getenv("JASAPP_CONFIG");
 	  if (propertiesClasspathName == null) {
+		  propertiesClasspathName = System.getProperty("jsapp.config");
+	  }
+	  
+	  if (propertiesClasspathName == null) {
 		  propertiesClasspathName = "/jasapp.properties";
 	  }
+	  
 	  try {
 		  Properties ret = new Properties();
 		  ret.load(App.class.getResourceAsStream(propertiesClasspathName));
